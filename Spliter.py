@@ -1,9 +1,43 @@
+import os
+import time
+
 def spliter(word):
     for i in word:
         print(i.upper(), end=".")
 
-inp = input("Press Enter to continue")
+def clearConsole():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
-while inp != "exit":
-    inp = input("\nSplit text: ")
-    spliter(inp)
+
+def main():
+
+    inp = input(
+        "\nWelcome to Spliter\n" 
+        "This program split your entered text\n"
+        "Press enter to start"
+    )
+
+    print(
+        "-----------------------\n"
+        "You can type 'exit' to quit program\n"
+        "Type 'clear' to clean console"
+        )   
+
+    while True:
+
+        inp = input("\nYour text: ")
+    
+        if inp == "clear":
+            clearConsole()
+        elif inp == "exit":
+            print("\nGood Bye")
+            time.sleep(1)
+            break
+        else:
+            spliter(inp)
+
+if __name__ == "__main__":
+    main()
